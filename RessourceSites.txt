@@ -1,0 +1,28 @@
+#### General sites about Programming, Python or other ####
+
+http://stackoverflow.com/ ; Forum for programmers. When looking for a giving solution for a problem you will end up on stackoverflow in 9 of 10 cases.
+
+http://pythontutor.com/ ; Great site to visualize what happens while your code is executed. Great to help you unterstand you loops and to help you find ways to better them.
+
+https://www.khanacademy.org ; Good site where you can learn or refrence a multitude of topics (biology, math, programming,...).
+
+
+
+#### Tutorials for Python ####
+
+www.codeacademy.com ; Good site for beginners and to start with the basics. Interactif site with browser interpreter.
+
+http://learnpythonthehardway.org/book/ ; Book. Challenging and good if you want to advance while learning good technics. 
+
+http://www.checkio.org/ ; Learn and game at the same time! Interactif game where you have to pass programming challenges in order to gain experience points and advance to the nex level.
+
+https://www.thenewboston.com/videos.php?cat=98 ; You prefer video tutorial? You're welcome!
+
+#### Tutorial for SQL ####
+
+http://sql.learncodethehardway.org/book/ ; Good book to get a good grasp of SQL.
+
+https://www.khanacademy.org/computing/computer-programming/sql ; Khan academy's video tutorials on SQL.
+
+http://sol.gfxile.net/galaxql.html ; One of my favorites. Bored of the old finance table queries? Try this interactif tutorial where you will look for and manipulate the STARS!
+
