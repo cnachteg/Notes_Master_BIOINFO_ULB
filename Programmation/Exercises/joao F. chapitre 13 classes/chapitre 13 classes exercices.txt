@@ -1,0 +1,203 @@
+#-*- coding: Utf-8 -*-
+
+class Monome(object):
+    def __init__(self, coef = 0, degre = 0): # create a new object with  attribute a list
+        self.list = [coef, degre]
+
+    def __repr__(self):
+        #print(self.list)
+        if len(self.list) == 2: #quant on a juste 1 monomer ex [2,3]   2 est le coef et 3 le degre
+            res = '%s x** %s' % (self.list[0],self.list[1]) # representation ex [2,3] --> '2 x** 3'
+        else: # representation
+            monome_res = Monome() # creation d'un nouveau object
+            monome_res.list = [] # creation d'une nouvelle liste dans cet object
+            for elem in self.list:
+                monome_res.list.append(elem)
+            for coef in range(0,len(self.list),2): # all the coef in the list are at self.list[coef]
+
+                monome_res.list[coef] = str(monome_res.list[coef]) + 'x**' + str(monome_res.list[coef+1]) # putting list in a monomer maner ex [3,4,1,1] --> ['3x**4', 4, 1x**1, 1]
+
+            i = 1
+            delet = len(monome_res.list)/2 #moitie des element de la liste sont des coeficients a eliminer
+            while i <= delet: # block elimination des degres de la liste ex ['3x**4', 4, 1x**1, 1] --> ['3x**4', '1x**1']
+                del monome_res.list[i]
+                i += 1
+            res = monome_res.list # representation ex ['3x**4', '1x**1']
+        return str(res) # REMARKE qu'on ne peut invoyer que type string
+
+    def __add__(self, other): # addition des monomer si ils on le meme degre p + p1 c'est le meme que p.__add__(p1) --> self.__add__(other)
+        monome_res = Monome() # creation d'un nouveau object
+        monome_res.list = [] # creation d'une nouvelle liste dans cet object
+        for elem in self.list:
+            monome_res.list.append(elem) # passage de touts les elements de l'object self vers l'object mono_res
+        monome_res.list += other.list # creation d'une seul list avec self et other
+        tail_list = len(monome_res.list)
+        i = 0
+        j = 2
+        while tail_list >= i :
+            while tail_list >= j+2:
+                if monome_res.list[i+1] == monome_res.list[j+1]: # if le degre est le meme
+                    monome_res.list[i] = monome_res.list[i] + monome_res.list[j] # if degre est le meme alors on somme les coeficients
+                    del monome_res.list[j:j+2] # apres la some on elimine le degre et coef du monome somme
+                    tail_list -= 2 # controle la taille de la liste que elle meme controle la boucle (astuce pour ne pas sortir du limite index
+                j += 2 # on avance j 2 par 2 jusqu'a la fin de la liste  [i,0,j,0,0] --> [i,0,0,0,j]
+            i += 2
+            j = i + 2 # j redeviens toujour le coeficien apres i apres avancer i  [i,0,0,0,0,0,j] --> [0,0,i,0,j,0,0]
+        return monome_res # envoy la reference ATTENTION le probleme c'est qu'on ne peut pas faire p1 = p + p + p par exemple car le p change de valeur
+
+    def __sub__(self, other): # subtraction, le code est le meme que __add__ sauf un changement indique en dessous
+        monome_res = Monome() # creation d'un nouveau object
+        monome_res.list = [] # creation d'une nouvelle liste dans cet object
+        for elem in self.list:
+            monome_res.list.append(elem) # passage de touts les elements de l'object self vers l'object mono_res
+        monome_res.list += other.list # creation d'une seul list avec self et other
+
+        tail_list = len(monome_res.list)
+        i = 0
+        j = 2
+        while tail_list >= i :
+            while tail_list >= j+2:
+                if monome_res.list[i+1] == monome_res.list[j+1]: # if le degre est le meme
+                    monome_res.list[i] = monome_res.list[i] - monome_res.list[j] # if degre est le meme alors on subtrait les coeficients
+                    del monome_res.list[j:j+2] # apres la some on elimine le degre et coef du monome somme
+                    tail_list -= 2 # controle la taille de la liste que elle meme controle la boucle (astuce pour ne pas sortir du limite index
+                j += 2 # on avance j 2 par 2 jusqu'a la fin de la liste  [i,0,j,0,0] --> [i,0,0,0,j]
+            i += 2
+            j = i + 2 # j redeviens toujour le coeficien apres i apres avancer i  [i,0,0,0,0,0,j] --> [0,0,i,0,j,0,0]
+        return monome_res
+
+    def __mul__(self, other):
+        monome_res = Monome() # creation d'un nouveau object
+        monome_res.list = [] # creation d'une nouvelle liste dans cet object
+        for i in range(0,len(self.list)-1,2):
+            for j in range(0,len(other.list)-1,2):
+                monome_res.list.append(self.list[i] * other.list[j]) # on multiplie le coef
+                monome_res.list.append(self.list[i+1] + other.list[j+1])
+        return monome_res #rennvoy la reference de la liste
+
+
+    def __truediv__(self, other): # division float
+        monome_res = Monome() # creation d'un nouveau object
+        monome_res.list = [] # creation d'une nouvelle liste dans cet object
+        for elem in self.list:
+            monome_res.list.append(elem) # passage de touts les elements de l'object self vers l'object mono_res
+        monome_res.list += other.list # creation d'une seul list avec self et other
+
+        for i in range(2,len(monome_res.list)):
+            if i%2 == 0:
+               monome_res.list[0] = monome_res.list[0] / monome_res.list[i]
+            else:
+                monome_res.list[1] = monome_res.list[1] - monome_res.list[i]
+        del monome_res.list[2:]
+        return monome_res # renvoi la reference de la list
+
+    def __lt__(self, other): # self.__lt__(other) -->  self < other renvoy 'True' et self > other renvoy False
+        size_s = len(self.list)
+        size_oth = len(other.list)
+
+        list = self.list + other.list # joindre dans une seul liste, ici 'list' serai perdu aprés return
+
+        j = 1 # j vais devenir l'index où se trove le monome le plus elevé
+        for i in range(3,len(list),2):
+            if list[j] < list[i]: # si le degre de index j < degre de index i alors on garde l'index ou se trouve le plus grand monome
+                j = i # on garde l'index du plus grand monome en j
+            if list[j] == list[i] and list[j-1] < list[i-1]: # si les deux degre on la meme valeur alors on va regardé qui a le coeficien le plus grand
+                j = i # des 2 monomes avec le meme degre on garde celui qui a le coef le plus elevé en 'j'
+
+        if j < size_s: # si l'index du monome le plus grand est inferieur à size_s alors ça veut dire que au depart
+        #  le monomer envoyé en 'self' été plus grand que le monomer en 'other' self > other alors --> renvoy False
+            res = False
+        else:
+            res = True
+        return res
+
+class Polinome(Monome): # classe fils de la classe Monome
+    def __init__(self, monome): # monome reçois une liste avec les references des atributs ex monome[0].list = [1,1] et monome.list[1] = [2,2]  ces listes correspont à Monome(1,1) et Monome (2,2)
+        lista = []
+
+        for elem in monome: # elem devient la reference de monome[0] et a la deusieme boucle de monome[1]
+            for i in elem.list: # extraction des elements de la list dans 'reference list' qui etais dans la liste monome, ex dans la liste monome[0] l'index 0 garde une reference qui s'appelle 'list' qui à comme attribut la liste [1,1] \n ("monome[0].list = [1,1]")
+                lista.append(i) # met toutes ces monomeres dans une seule liste
+        self.list = lista # garde la liste en self.list le but c'est que comme ça on a la lista qui est une reference de la classe polinome est un attribut de list
+
+    def composition(self,other):
+        new_obj1 = Monome()
+        new_obj2 = Monome()
+        new_obj3 = Monome()
+        new_obj4 = Monome()
+        new_obj1.list = []
+        new_obj2.list = []
+        new_obj3.list = []
+        new_obj4.list = []
+
+        new_list = []
+        new1_list = []
+        for i in range(len(self.list)):
+            if i % 2 == 1: # i is the degre
+                if self.list[i] != 0:
+                    new_list.append(self.list[i] * [other.list]) #  ex 2**(3x**3 + 4x**4) = (3x**3 + 4x**4)(3x**3 + 4x**4)   were ( 2 = self.list[i] = degre ), in reality we have (i=2) \n  i * [3,3,4,4] --> [[3,3,4,4],[3,3,4,4]]
+                                                                    #  self.list[i] = 2 and second boucle i = 3  --> [[[3,3,4,4],[3,3,4,4]] , [[3,3,4,4],[3,3,4,4],[3,3,4,4]]] the aim of append is divising for each diferent i * [3,3,4,4]  with []
+                else: #le probleme #  c'est que si self.list[i] = 0 alors on dois avoir 0**(3x**3 + 4**4) = 3x**0 + 4**0 --> [3,0,4,0]
+                    for i in range(len(other.list)):
+                        if i % 2 == 1:
+                            new1_list.append(0)
+                        else:
+                            new1_list.append(other.list[i])
+                    new_list.append(new1_list) # puting in the same list in a block as we did previous [[etc...]]
+
+        i = 0
+        j = 0
+        while len(new_list) > i:
+            if len(new_list[i]) >= 2: # for ex we cannot have new_list[0] = [3,3,4,4] in our list [[[3,3,4,4]  ,  [[3,3,4,4],[3,3,4,4],[3,3,4,4]]] (check else) but we can have [[[3,3,4,4],[3,3,4,4]] , [[3,3,4,4],[3,3,4,4],[3,3,4,4]]]
+                while len(new_list[i])-1 > j:
+
+                    new_obj2.list = new_list[i][j+1] # prends le deusieme [3,3,4,4]
+                    if j == 0: # juste pour prendre le premier
+                        new_obj1.list = new_list[i][j] # [[[3,3,4,4],[3,3,4,4]] ...]  prends le premier [3,3,4,4]
+                    new_obj1 = new_obj1.__mul__(new_obj2).__add__(Monome()) # remarke qu'on calcule 2 par 2 ex [[3,3,4,4],[3,3,4,4]], ...] est on garde la reference en new_obj1  jusqu'a ce que j = 0 à nouveau
+                    j += 1
+                new_obj3.list.append(new_obj1.list)
+                i += 1
+                j = 0 # retour au debut de new_list[i][0]
+            else:
+                new_obj3.list.append(new_list[i][0]) # add to our list this polynome without treatment [3,0,4,0] --> [[3,0,4,0]]
+                i += 1
+# jusque ici on a juste pris en conte le degre de self.list pour travailler la liste p2 mantenant on doit aussi considere les coeficients de self.list
+
+# ce bloc multiplie les coef de self.list avec les coef du polinome correspondant ex p1 = [2,2] et p2 = [1,1,2,2] alors  2 * [1,1,2,2] et 2 * [1,1,2,2] --> [2,1,4,2] et [2,1,4,2] only the coef are multiplied
+        for i in range(len(self.list),2):
+            for j in range(len(new_obj3.list)):
+                for index in range(len(new_obj3.list),2):
+                   new_obj3.list[j][index] = self.list[i] * new_obj3.list[j][index]
+
+        for elem in new_obj3.list: # ce bloc permet de retirer les [[ etc...1° polinome],[etc...2°polinome]] --> [etc...1° et 2° polineme] pour proceder à l'addiction des deux polinomes
+            for deep_elem in elem:
+                new_obj4.list.append(deep_elem)
+        new_obj4 = new_obj4.__add__(Monome()) # Monome en argument est necessaire pour pas cree erreur l'inconveniant c'est que on dois apres enlever les 0 x ** 0 qui vont etre ajouter a la liste polinome
+
+        i = 0
+        while len(new_obj4.list) > i:# retire touts le monomes avec coef = 0  ça veut dire ex 0 x** 2
+            if i%2 == 0:
+                if new_obj4.list[i] == 0:
+                    del new_obj4.list[i:i+2]
+                    i -= 2
+            i += 2
+        return new_obj4
+
+
+p1 = Polinome([Monome(2,2),Monome(10,10),Monome(5,5)]) # il prend d'abord les Monomes en __init__ dans la classe pere, apres il les renvoy sur Polinome()
+p2 = Polinome([Monome(1,1),Monome(2,2)])
+
+p3 = p1.composition(p2) # (p1 o p2)(x) p1 após p2
+p4 = p1 + p2
+p5 = p4 > p3
+p6 = p1 * p2
+p7 = p1 / p1 # division work only with monomer ex 2x**2 / 3x**3  and not 2x**2 +
+
+print(p1)
+print(p2)
+print(p3)
+print(p4)
+print(p5)
+print(p6)
+print(p7)
