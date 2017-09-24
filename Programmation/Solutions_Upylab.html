@@ -1,0 +1,1154 @@
+<!Doctype html public>
+<html>
+  <head>
+    <title>Sol 4</title>
+  </head>
+  <body>
+<h1>Chapter 1</h1>
+<pre>print("Bonjour UpyLaB !")</pre><hr/>
+<h1>Chapter 2</h1>
+<pre>a = float(input())
+print(a ** 17)</pre><hr/>
+<pre>a = float(input())
+print(a * 18)</pre><hr/>
+<pre>a = float(input())
+b = float(input())
+c = float(input())
+if a == b:
+    print(int(a))
+elif a == c:
+    print(int(a))
+elif b == c:
+    print(int(c))</pre><hr/>
+<pre>a = int(input())
+if a == 1:
+    print("a vaut 1")
+elif a <= 0:
+    print("a est inférieur ou égal à 0")</pre><hr/>
+<pre>a = int(input())
+b = int(input())
+c = int(input())
+
+if c == 1:
+    print(a+b)
+elif c == 2:
+    print(a-b)
+elif c == 3:
+    print(a*b)
+elif c == 4:
+    print(a ** 2 + b * a)
+else:
+    print("Erreur")</pre><hr/>
+<pre>a = float(input())
+b = float(input())
+print((a+b) / 2)</pre><hr/>
+<pre>from math import sqrt
+a = float(input())
+b = float(input())
+if a < 0 or b < 0:
+    print("Erreur")
+else:
+    print(sqrt(a * b))</pre><hr/>
+<pre>a = float(input())
+c = float(input())
+print(2*c-a)</pre><hr/>
+<pre>i = 0
+while i <= 5:
+   print(i) 
+   i += 1</pre><hr/>
+<pre>i=0
+while i < 10:
+   print(i) 
+   i+=1</pre><hr/>
+<pre>a = int(input())
+b = int(input())
+i = a
+while i < b+1:
+   print(i)
+   i += 1</pre><hr/>
+<pre>for i in range(11): 
+    if i%2 == 0:
+        print(str(i)+" est pair")
+    else:
+        print(str(i)+" est impair")</pre><hr/>
+<pre>a = int(input())
+i = 1
+for i in range(a-1):
+  print(i+1)</pre><hr/>
+<pre>n = int(input())
+# 1
+for i in range(1,n):
+  print(i)
+# 2
+i = 1
+while i < n:
+  print(i)
+  i += 1
+# 3
+for i in range(n+1):
+  print(i)
+# 4
+i = 0
+while i < n+1:
+  print(i)
+  i += 1
+# 5
+for i in range(n, -1, -1):
+  print(i)
+  i -= 1
+# 6
+i = n
+while i >= 0:
+  print(i)
+  i -= 1
+# 7
+for i in range(0, n+1, 2):
+    print(i)
+# 8
+i = 0
+while i < n+1:
+    print(i)
+    i += 2
+# 9
+for i in range(7, n, 7):
+    print(i)
+# 10
+for i in range(n - (n % 5), -1, -5):
+    print(i)</pre><hr/>
+<pre>list = []
+a = None
+while a != -1:
+    a = int(input())
+    list.append(a)
+list = list[:-1]
+print(sum(list) / len(list))</pre><hr/>
+<pre>import random
+NB_ESSAIS_MAX = 6
+s = int(input())
+random.seed(s)
+secret = random.randint(0,100)
+
+for n in range(1, NB_ESSAIS_MAX+1):
+    a = int(input())
+    if a == secret:
+        print("Gagné en %s essais !" % n)
+        break
+    elif a > secret:
+        print("Trop grand")
+    else:
+        print("Trop petit")
+else:
+    print("Perdu !")</pre><hr/>
+<pre>from math import factorial as fac
+x = float(input())
+def getTerm(i, x):
+    return ((-1) ** i) * (x ** (2 * i + 1)) / fac(2 * i + 1)
+def calcSin(x):
+    summe, i, error = 0, 0, float("inf")
+    while True:
+        term = getTerm(i, x)
+        if abs(term) > 10 ** -6:
+            summe += term
+        else:
+            break
+        i += 1
+    return summe
+print(calcSin(x))</pre><hr/>
+<pre>n = int(input())
+for i in range(n):
+    print("X" * n)</pre><hr/>
+<pre>n = int(input(""))
+for i in range(n):
+    print(" " * i + "X" * (n-i))</pre><hr/>
+<pre>n = int(input())
+l = [["X" for j in range(n)] for i in range(n)]
+for i in range(n):
+    l[i][i] = "O"
+    l[i][n-i-1] = "O"
+for l_ in l:
+    print("".join(l_))</pre><hr/>
+<pre>n = int(input())
+l = [["X" for j in range(n)] for i in range(n)]
+for i in range(n):
+    l[i][i] = "O"
+    l[i][n-i-1] = "O"
+for l_ in l:
+    print("".join(l_))</pre><hr/>
+<h1>Chapter 3</h1>
+<pre>def swap(a, b):
+  return(b,a)</pre><hr/>
+<pre>from math import sqrt
+def distance_points(x, y):
+  return sqrt((x[0]-y[0]) ** 2 + (x[1]-y[1]) ** 2)</pre><hr/>
+<pre>from math import sqrt
+def distance_points(x, y):
+  return sqrt((x[0]-y[0]) ** 2 + (x[1]-y[1]) ** 2)
+def longueur(*points):
+    summe = 0
+    for i in range(1, len(points)):
+        summe += distance_points(points[i-1], points[i])
+    return summe</pre><hr/>
+<pre>from math import sqrt
+def distance_points(x, y):
+  return sqrt((x[0]-y[0]) ** 2 + (x[1]-y[1]) ** 2)
+def checkParall(a, b, c, d):
+  return distance_points(a, b) == distance_points(c, d) and \
+    distance_points(b, c) == distance_points(d, a)
+def parallelogramme(a, b, c, d):
+    umfang = distance_points(a, b) + \
+      distance_points(b, c) + \
+      distance_points(c, d) + \
+      distance_points(d, a)
+    if checkParall(a, b, c, d):
+        return umfang</pre><hr/>
+<pre>from math import sqrt
+def rac_eq_2nd_deg(a, b, c):
+    s = b ** 2 - 4 * a * c
+    if s < 0:
+        return tuple()
+    elif s == 0:
+        return tuple([(-b - sqrt(s)) / 2 * a])
+    r1 = (-b - sqrt(s)) / (2 * a)
+    r2 = (-b + sqrt(s)) / (2 * a)
+    return (min(r1,r2), max(r1,r2))</pre><hr/>
+<pre>from random import randint, seed
+def alea_dice(s):
+    seed(s)
+    l = sorted([randint(1,6), randint(1,6), randint(1,6)], reverse=True)
+    return l == [4, 2, 1]</pre><hr/>
+<pre>def getNr(prix, bill):
+    c = 0
+    while prix >= bill:
+        prix = prix - bill
+        c += 1
+    return prix, c
+def rendreMonnaie(prix,g):
+    prix = (g[0] * 20 + g[1] * 10 + g[2] * 5 + g[3] * 2 + g[4] * 1) - prix
+    prix, a = getNr(prix, 20)
+    prix, b = getNr(prix, 10)
+    prix, c = getNr(prix,  5)
+    prix, d = getNr(prix,  2)
+    prix, e = getNr(prix,  1)
+    if prix != 0: return None
+    return (a, b, c, d, e)</pre><hr/>
+<pre>def duree(debut, fin):
+    m, s = debut[0], debut[1]
+    passedSec = 0
+    while m != fin[0] or s != fin[1]:
+        passedSec += 1
+        s = s + 1
+        if s == 60:      
+          m += 1
+          if m == 24:
+            m = 0
+          s = 0
+    return (passedSec // 60, passedSec % 60)</pre><hr/>
+<pre>def duree(debut, fin):
+    start = debut[0] * 60 + debut[1]
+    end = fin[0] * 60 + fin[1]
+    timepass = end - start
+    m = (timepass // 60) % 24
+    s = timepass % 60
+    return (m, s)</pre><hr/>
+<pre>def appliquer(a, b, f):
+    r = f(a,b)
+    if type(r) == int:
+        return r
+    return None</pre><hr/>
+<pre>def sum(a=0, b=1):
+    return a+b</pre><hr/>
+<pre>def factorial(n):
+    prod = 1
+    for i in range(2,n+1):
+        prod *= i
+    return prod
+
+def mult(i, n):
+    prod = 1
+    for z in range(n):
+        prod *= i
+    return prod
+
+def minusOnePower(n):
+    return -1 if n % 2 == 1 else 1
+
+def laterTerm(k, n):
+    summe = 0
+    for i in range(1, k+1):
+        summe += minusOnePower(k-i) * factorial(k) / (factorial(i) * factorial(k-i)) * mult(i, n)
+    return summe
+
+def bell(n):
+    if n == 0: return 1
+    summe = 0
+    for k in range(1, n+1):
+        summe += 1 / factorial(k) * laterTerm(k, n)
+    return summe // 1</pre><hr/>
+<pre>def droite(p1, p2):
+    y = p2[1]-p1[1]
+    x = p2[0]-p1[0]
+    if x == 0 or y == 0: return None
+    a = y / x
+    return (a, p1[1] - a * p1[0])</pre><hr/>
+<pre>def appartient(d, p):
+    return p[1] == d[0] * p[0] + d[1]</pre><hr/>
+<pre>def coefficient_angulaire(d):
+    return d[0]</pre><hr/>
+<pre>def intersection_abscisses(d):
+    return (-d[1]/d[0], 0)</pre><hr/>
+<pre>def paralleles(d1,d2):
+    return d1[0] == d2[0]</pre><hr/>
+<pre>def confondues(d1,d2):
+    return d1 == d2</pre><hr/>
+<pre>def intersection(d1,d2):
+    a1, b1, a2, b2 = d1[0], d1[1], d2[0], d2[1]
+    if a1 == a2:
+        return None if b1 != b2 else (0, b1)
+    x = (b2 - b1) / (a1 - a2)
+    y = a1 * x + b1
+    return (x, y)</pre><hr/>
+<pre>def droite_normale(d, p):
+    a, b, x, y = d[0], d[1], p[0], p[1]
+    sa = -1 / a
+    return (sa, y - sa * x)</pre><hr/>
+<pre>def droite_parallele(d, p):
+    return (d[0], p[1] - d[0] * p[0])</pre><hr/>
+<pre>from math import sqrt
+def distance_points(x, y):
+  return sqrt((x[0]-y[0]) ** 2 + (x[1]-y[1]) ** 2)
+
+def droite_normale(d, p):
+    a, b, x, y = d[0], d[1], p[0], p[1]
+    sa = -1 / a
+    return (sa, y - sa * x)
+
+def intersection(d1,d2):
+    a1, b1, a2, b2 = d1[0], d1[1], d2[0], d2[1]
+    if a1 == a2:
+        return None if b1 != b2 else (0, b1)
+    x = (b2 - b1) / (a1 - a2)
+    y = a1 * x + b1
+    return (x, y)
+
+def distance_droite(d, p1):
+    dn = droite_normale(d, p1)
+    p2 = intersection(d, dn)
+    return distance_points(p1, p2)</pre><hr/>
+<pre>def droite_normale(d, p):
+    a, b, x, y = d[0], d[1], p[0], p[1]
+    sa = -1 / a
+    return (sa, y - sa * x)
+
+def intersection(d1,d2):
+    a1, b1, a2, b2 = d1[0], d1[1], d2[0], d2[1]
+    if a1 == a2:
+        return None if b1 != b2 else (0, b1)
+    x = (b2 - b1) / (a1 - a2)
+    y = a1 * x + b1
+    return (x, y)
+
+def symetrie_orthogonale(d, p1):
+    dn = droite_normale(d, p1)
+    p2 = intersection(d, dn)
+    return (p1[0] + 2 * (p2[0] - p1[0]), p1[1] + 2 * (p2[1] - p1[1]))</pre><hr/>
+<h1>Chapter 4</h1>
+<pre>def caractere(s, i):
+    if i >= len(s): return ""
+    return s[i]</pre><hr>
+<pre>def caracteres(s, i, j):
+    return s[i:j+1]</pre><hr/>
+<pre>def change_caractere(s, i, a):
+    if len(a) > 1 or i >= len(s): return ""
+    if i < 0 and i < -len(s): return ""
+    return s[:i] + a + s[i+1:]</pre><hr/>
+<pre>def change_caracteres(s, i, j, t):
+    if i >= len(s): return ""
+    if i < 0 and i < -len(s): return ""
+    if j >= len(s): return ""
+    if j < 0 and j < -len(s): return ""
+    if i > j: return ""
+    return s[:i] + t + s[j+1:]</pre><hr/>
+<pre>def trouve_caractere(s,a):
+    for i, c in enumerate(s):
+        if c == a:
+            return i
+    return -1</pre><hr/>
+<pre>def convert_to_int(s):
+    try:
+        return int(s)
+    except:
+        return None</pre><hr/>
+<pre>def convert_to_float(w):
+    try:
+        return float(w)
+    except:
+        return None</pre><hr/>
+<pre>def is_one_word(w):
+    return w.isalpha()</pre><hr/>
+<pre>def is_one_letter(w):
+    try:
+        return len(w) == 1
+    except:
+        return False</pre><hr/>
+<pre># Yeah, I know, when we need all borders, it is faster to calc that with the KMP-Border creation algorithm
+def plus_grand_bord(w):
+    for i in range(len(w)-1, -1, -1):
+        if w[:i] == w[len(w)-i:]: return w[:i]</pre><hr/>
+<pre>def anagrammes(v, w):
+    v = sorted([x for x in v])
+    w = sorted([x for x in w])
+    return v == w</pre><hr/>
+<pre>def intersection(v, w):
+    longest = ""
+    for start in range(len(v)):
+        for length in range(len(v)-start, -1, -1):
+            subWord = v[start:start+length]
+            if len(subWord) > len(longest) and w.find(subWord) != -1:
+              longest = subWord              
+    return longest</pre><hr/>
+<pre>def getSubText(c, u, v):
+    if c == u[0]: return u[1]
+    if c == v[0]: return v[1]
+    return c
+
+def trans(text, u, v):
+    return "".join(getSubText(c, u, v) for c in text)</pre><hr/>
+<pre>def rot(c, k):
+    if c == 32: return 32
+    result = c + k
+    if result > 90:
+        result = result - 90 + 64
+    return result
+
+def caesar(mot, k):
+    return "".join([chr(rot(ord(c), k)) for c in mot])
+
+def canonique(mot):
+    k = 0
+    if mot[0] != "A":
+        k = 91 - ord(mot[0])
+    return caesar(mot, k)</pre><hr/>
+<pre>def rot(c, k):
+    c, k = ord(c), ord(k) - 65
+    result = c + k
+    if result > 90:
+        result = result - 90 + 64
+    return chr(result)
+
+def vigenere(mot, key):
+    result = []
+    for i, c in enumerate(mot):
+        if 65 <= ord(c) <= 90:
+            result.append(rot(c, key[i % len(key)]))
+        else:
+            result.append(c)
+    return "".join(result)</pre><hr/>
+<h1>Chapter 5</h1>
+<pre>def bornes(nombres):
+    minVal = min(nombres)
+    maxVal = max(nombres)
+    return (minVal, maxVal)</pre><hr/>
+<pre>def bornes(nombres):
+    nombres = sorted(nombres)
+    return (nombres[0], nombres[-1])</pre><hr/>
+<pre>def my_pow(n, b):
+    l = []
+    for i in range(n):
+        l.append(b ** i)
+    return l</pre><hr/>
+<pre>def isPrim(possiblePrim, alreadyPrims):
+    for prim in alreadyPrims:
+        if possiblePrim % prim == 0:
+            return False
+    return True
+
+def prime_numbers(nb):
+    try:
+        if nb < 0 or type(nb) != type(0): return None
+        lst, i = [], 2
+        while len(lst) != nb:
+            if isPrim(i, lst):
+                lst.append(i)
+            i += 1
+        return lst
+    except: pass</pre><hr/>
+<pre>def my_insert(lst, n):
+    lst = lst[:]
+    inserted = False
+    for i, ele in enumerate(lst):
+        if type(ele) != type(n):
+            return None
+        if n < ele:
+            lst.insert(i, n)
+            inserted = True
+            break
+    if not inserted:
+        lst.append(n)
+    return lst
+
+# Well normally I would just write and I would consider this as the more correct solution,
+# but upylab don't share my opinion
+#def my_insert(lst, n):
+#    try:
+#        lst.append(n)
+#        lst = sorted(lst)
+#        return lst
+#    except:
+#        return None</pre><hr/>
+<pre>def my_insert(lst, n):
+    inserted = False
+    for i, ele in enumerate(lst):
+        if type(ele) != type(n):
+            raise Exception("Uplyab wants an exception here!")
+        if n < ele:
+            lst.insert(i, n)
+            inserted = True
+            break
+    if not inserted:
+        lst.append(n)</pre><hr/>
+<pre>def my_count(lst, c):
+    return lst.count(c)</pre><hr/>
+<pre>def my_remove(lst, e):
+    return lst.remove(e)</pre><hr/>
+<pre>def my_map(lst, f):
+    return [x for x in map(f, lst)]</pre><hr/>
+<pre>def my_filter(lst, f):
+    return [x for x in filter(f, lst)]</pre><hr/>
+<pre>def my_enumerate(lst):
+    return [(i, e) for i, e in enumerate(lst)]</pre><hr/>
+<pre># There seems to be a haskell fan somewhere!!!
+def my_reduce(lst, f, e):
+    for i in lst:
+        e = f(e, i)
+    return e</pre><hr/>
+<pre>def my_print(lst, sep=('[', '->', ']')):
+    print(sep[0] + sep[1].join([str(x) for x in lst]) + sep[2])</pre><hr/>
+<pre>def my_invert(l):
+    return l.reverse()</pre><hr/>
+<pre>def decompresse(lst):
+    l = []
+    for i, e in lst:
+        for x in range(i):
+            l.append(e)
+    return l</pre><hr/>
+<h1>Chapter 6</h1>
+<pre>def init_mat(m,n):
+    return [[0 for y in range(n)] for x in range(m)]</pre><hr/>
+<pre>def print_mat(M):
+    print("\n".join(["\t".join([str(y) for y in x]) for x in M]))</pre><hr/>
+<pre>def trace(M):
+    summe = 0
+    for i in range(0, len(M)):
+        summe += M[i][i]
+    return summe</pre><hr/>
+<pre>def antisymetrique(M):
+    for i in range(len(M)):
+        for j in range(len(M)):
+            if M[i][j] != -M[j][i]:
+                return False
+    return True</pre><hr/>
+<pre># unfortunately there's no numpy module ... it would have been that easy ...
+def produit_matriciel(A, B):
+    c = [[0 for x in B[0]] for y in A]
+    for i in range(len(c)):
+        for j in range(len(c[i])):
+            for k in range(len(B)):
+                c[i][j] += A[i][k] * B[k][j]
+    return c</pre><hr/>
+<pre>def xor_matriciel(A, B):
+    try:
+        return [[A[i][j] ^ B[i][j] for j, x in enumerate(A[0])] for i, y in enumerate(A)]
+    except:
+        pass</pre><hr/>
+<pre>def rotLstLeft(seq):
+    if seq == []: return
+    first = seq[0]
+    for i in range(len(seq)-1):
+        seq[i] = seq[i+1]
+    seq[-1] = first
+
+def rotation_gauche(A):
+    for i, list in enumerate(A):
+        for c in range(i):
+            rotLstLeft(list)</pre><hr/>
+<pre># -*- coding: UTF-8 -*-
+# Je les hais:
+# Le traitement doit être effectué sans utiliser de structure intermédiaire
+# (c'est-à-dire pas de dictionnaire, pas de nouvelle liste ou de tableau, etc.).
+# C'était si facile (4 ou 5 lignes) sans cette remarque ...
+# qui vois la similarity avec (bubble-) sort?
+def getIndicesByPoint(point, m, n, o):
+  a, point = point % o, point // o
+  return (point // n, point % n, a)
+
+def sol(a, p):
+    m, n, o = 0, 0, 0
+    try: # damn border case, for which this try is needed!!!
+        m, n, o = len(a), len(a[0]), len(a[0][0])
+    except: return
+    for pointToResolve in range(m * n * o):
+        i, j, k = getIndicesByPoint(pointToResolve, m, n, o)
+        for swappingPoint in range(pointToResolve, m * n * o):
+            i_, j_, k_ = getIndicesByPoint(swappingPoint, m, n, o)
+            if p[i_][j_][k_] == pointToResolve:
+                a[i][j][k], a[i_][j_][k_] = a[i_][j_][k_], a[i][j][k]
+                p[i][j][k], p[i_][j_][k_] = p[i_][j_][k_], p[i][j][k]
+                break</pre><hr/>
+<pre>def rotation(M):
+    n = len(M)
+    if n <= 1: return
+    M_ = [x[:] for x in M]
+    for i in range(len(M_)):
+        for j in range(len(M_[i])):
+            M_[i][j] = M[j][n - 1 - i]
+    for i in range(n):
+        for j in range(n):
+            M[i][j] = M_[i][j]</pre><hr/>
+<h1>Chapter 7</h1>
+<pre>WTF? Upylab keeps rejecting my solution??? With the message:
+Résultat attendu pour substitue('A A A A is it good ', {'A': 'Ha', 'inf': 'infinity', '2': '2 times', 'cpt': 'counted', 'N.': 'Norris'}) : 'Ha Ha Ha Ha is it good'
+but when I run that by hand, python is giving me exactly the expected output ...
+
+def substitue(msg, dic):
+    for key, val in dic.items():
+        msg = msg.replace(key, val)
+    return msg.strip()</pre><hr/>
+<pre>def addition(a,b):
+    return a + b
+
+def soustraction(a,b):
+    return a - b
+
+def multiplication(a,b):
+    return a * b
+
+import sys
+op = { "A" : addition, "S" : soustraction, "M" : multiplication }
+a = sys.stdin.read().split() # WTF? input() results in EOF?
+for i in range(2, len(a), 3):
+    print(op[a[i]](int(a[i-2]), int(a[i-1])))</pre><hr/>
+<pre>def rot(c, k):
+    if c == 32: return 32
+    result = c + k
+    if result > ord("z"):
+        result = result - ord("z") + ord("a") - 1
+    return result
+
+def caesar(mot, k):
+    return "".join([chr(rot(ord(c), k)) for c in mot])
+
+def canonique(mot):
+    k = 0
+    if mot[0] != "a":
+        k = ord("z") + 1 - ord(mot[0])
+    return caesar(mot, k)
+
+def equivalence_canonique(*lst):
+    dict = {}
+    for ele in lst:
+        lst = dict.get(canonique(ele), [])
+        lst.append(ele)
+        dict[canonique(ele)] = lst
+    return dict</pre><hr/>
+<pre>def values(dico):
+    return [x[1] for x in sorted(dico.items(), key=lambda x: x[0])]</pre><hr/>
+<pre>WTF? What have you to do there?</pre><hr/>
+<pre>def store_email(liste_mails):
+    dic = {}
+    for e in liste_mails:
+        a, b = e.split("@")
+        if b in dic:
+            dic[b].append(a)
+        else:
+            dic[b] = [a]
+    return dic</pre><hr/>
+<pre>import random
+def create_map(size, trapsNbr):
+    c = 1
+    dict = {}
+    dict[(random.randint(0, size-1) + c, random.randint(0, size-1) + c)] = 1
+    i = 0
+    while i < trapsNbr:
+        rand = (random.randint(0, size-1) + c, random.randint(0, size-1) + c)
+        if dict.get(rand, 0) == 0:
+            dict[rand] = -1
+            i += 1
+    return dict
+def play_game(mapSize, map):
+    while True:
+        val = map.get((int(input()), int(input())), 0)
+        if val == 1:
+            return True
+        if val == -1:
+            return False</pre><hr/>
+<pre>def formatNr(nr):
+    return str(nr).rstrip('0').rstrip('.')
+
+def intervalles(down, up, div):
+    return [down + i * (up - down) / div for i in range(div+1)]
+
+def histogramme(l, interval):
+    dict = {"[%s,%s)" % (formatNr(x), formatNr(interval[i+1])):0 for i, x in enumerate(interval[:-1])}
+    for ele in l:
+        for key in dict.keys():
+            print(key)
+            border = [float(x) for x in key[1:-1].split(",")]
+            if border[0] <= ele < border[1]:
+                dict[key] += 1
+                break
+    return dict</pre><hr/>
+<h1>Chapter 8</h1>
+<pre>print(None)</pre><hr/>
+<h1>Chapter 9</h1>
+<pre>print(None)</pre><hr/>
+<h1>Chapter 10</h1>
+<pre>def ackerman(m,n):
+    if m == 0:
+        return n + 1
+    if m > 0 and n == 0:
+        return ackerman(m-1,1)
+    if m > 0 and n > 0:
+        return ackerman(m-1,ackerman(m, n-1))</pre><hr/>
+<pre>#from fractions import gcd
+#def pgcd(x,y):
+#    return gcd(x, y) # this would be the normal way of doing it in python
+def pgcd(a, b):
+    if b == 0: return a
+    return pgcd(b, a%b)</pre><hr/>
+<pre>def fact(n):
+    if n == 1 or n == 0:
+        return 1
+    return fact(n-1) * n</pre><hr/>
+<pre>def puissance(x, n):
+    if n == 0: return 1
+    if n == 1:
+        return x
+    return x * puissance(x, n - 1)</pre><hr/>
+<pre>def triangle_pascal(i, j):
+    if i < 0 or j < 0: return 0
+    try:
+        if j == 0 or i == j: return 1
+        if i == 0 and j == 0: return 1
+        return triangle_pascal(i-1, j-1) + triangle_pascal(i-1, j)
+    except:
+        pass</pre><hr/>
+<pre>def contient(n, d):
+    if n == 0: return False
+    if n % 10 == d: return True
+    return contient(n // 10, d)</pre><hr/>
+<pre># normally:
+#def inverse(n):
+#    return int(str(n)[::-1])
+# recursive:
+i = 0
+def inverse(n):
+    global i
+    if n <= 9: i = 1; return n
+    a, done = n % 10, inverse(n // 10)
+    res = done + a * (10 ** i)
+    i += 1
+    return res</pre><hr/>
+<pre>def est_multiple(n, d):
+    if n == 0: return True
+    if n < d: return False
+    return est_multiple(n - d, d)</pre><hr/>
+<pre>def div_entiere(n, d):
+    if n < d: return 0
+    return div_entiere(n - d, d) + 1</pre><hr/>
+<pre>def concatenation(L1, L2):
+    if L2 == []: return L1
+    L1.append(L2.pop(0))
+    return concatenation(L1, L2)
+# P.S.: list.append(ele) is the same as list.insert(len(list), ele)</pre><hr/>
+<h1>Chapter 11</h1>
+<pre>import re
+def wc(nomFichier):
+    cCh, cMots, cLine = 0, 0, 0
+    with open(nomFichier, "r") as inF:
+        for line in inF:
+            cCh += len(line)
+            line = line.strip("\n\r")
+            cMots += len([x for x in filter(lambda x : x != '', re.split("\W+", line))])
+            cLine += 1
+    return (cCh, cMots, cLine)</pre><hr/>
+<pre>def replace(in_path, out_path, pattern, subst):
+    with open(in_path, "r") as inF:
+        with open(out_path, "w") as outF:
+            fContent = inF.read().replace(pattern, subst)
+            outF.write(fContent)</pre><hr/>
+<pre>Not tried yet!<pre><hr/>
+<pre>def belongs_to_dictionary(cs):
+    with open("/pub/data/words.txt", "r") as inF:
+        for line in inF:
+            line = line.strip("\r\n")
+            if line == cs: return True
+    return False</pre><hr/>
+<pre>def trace(M):
+    try:
+        dimension = len(M)
+        if dimension != len(M[0]):
+            res = None
+        else:
+            res = 0
+        for i in range(dimension):
+            res += M[i][i]
+        return res
+    except:
+        if M == []: return 0
+        return None</pre><hr/>
+<h1>Chapter 12</h1>
+<pre>import time
+class StopWatch:
+    def __init__(self):
+        self._start = time.time()
+        self._stop = None
+    def __repr__(self):
+        return "StopWatch(%s, %s)" % (self._start, self._stop)
+    def __str__(self):
+        return self.__repr__()
+    def get_start_time(self):
+        return self._start
+    def get_end_time(self):
+        if self._stop == None: raise Exception("Upylab wants an exception here!")
+        return self._stop
+    def start(self):
+        self._start = time.time()
+        self._stop = None
+    def stop(self):
+        self._stop = time.time()
+    def get_elapsed_time(self):
+        start = self._start
+        stop = self._stop or time.time()
+        return round((stop - start) * 1000)</pre><hr/>
+<pre>class Monome:
+    def __init__(self, coef, deg):
+        self._coef = coef
+        self._deg = deg
+    def get_coefficient(self):
+        return self._coef
+    def get_degre(self):
+        return self._deg
+    def __repr__(self):
+        return "Monome(%s, %s)" % (self._coef, self._deg)
+    def __str__(self):
+        if self._deg == 0:
+            return "%s" % self._coef
+        if self._deg == 1:
+            return "%s x" % self._coef
+        return "%s x^ %s" % (self._coef, self._deg)</pre><hr/>
+<pre>class Monome:
+    def __init__(self, coef, deg):
+        self._coef = coef
+        self._deg = deg
+    def get_coefficient(self):
+        return self._coef
+    def get_degre(self):
+        return self._deg
+    def __repr__(self):
+        return "Monome(%s, %s)" % (self._coef, self._deg)
+    def __str__(self):
+        if self._deg == 0:
+            return "%s" % self._coef
+        if self._deg == 1:
+            return "%s x" % self._coef
+        return "%s x^ %s" % (self._coef, self._deg)
+    def __add__(self, o):
+        if self._deg != o._deg: raise Exception("Upylab wants an Exception here!")
+        return Monome(self._coef + o._coef, self._deg)
+    def __sub__(self, o):
+        if self._deg != o._deg: raise Exception("Upylab wants an Exception here!")
+        return Monome(self._coef - o._coef, self._deg)
+    def __mul__(self, o):
+        return Monome(self._coef * o._coef, self._deg + o._deg)
+    def __truediv__(self, o):
+        return Monome(self._coef / o._coef, self._deg - o._deg)
+    def __floordiv__(self, o):
+        return Monome(self._coef // o._coef, self._deg - o._deg)
+# Monome comparing after the O-Notation
+    def __eq__(self, o):
+        return self._deg == o._deg
+    def __lt__(self, o):
+        return self._deg < o._deg
+    def __le__(self, o):
+        return self._deg <= o._deg
+    def __gt__(self, o):
+        return self._deg > o._deg
+    def __ge__(self, o):
+        return self._deg >= o._deg</pre><hr/>
+<pre>WTF? I have a solution here that somethimes get accepted, somethimes rejected ...
+
+class Monome:
+    def __init__(self, coeff, deg):
+        self.coeff = coeff
+        self.degree = deg
+    def getcoeffficient(self):
+        return self.coeff
+    def getdegreere(self):
+        return self.degree
+    def __repr__(self):
+        return "Monome(%s, %s)" % (self.coeff, self.degree)
+    def __str__(self):
+        if self.degree == 0:
+            return "%s" % float(self.coeff)
+        if self.degree == 1:
+            return "%s x" % self.coeff
+        return "%s x^ %s" % (self.coeff, self.degree)
+    def __add__(self, o):
+        if self.degree != o.degree: raise Exception("Upylab wants an Exception here!")
+        return Monome(self.coeff + o.coeff, self.degree)
+    def __sub__(self, o):
+        if self.degree != o.degree: raise Exception("Upylab wants an Exception here!")
+        return Monome(self.coeff - o.coeff, self.degree)
+    def __mul__(self, o):
+        return Monome(self.coeff * o.coeff, self.degree + o.degree)
+    def __truediv__(self, o):
+        return Monome(self.coeff / o.coeff, self.degree - o.degree)
+    def __floordiv__(self, o):
+        return Monome(self.coeff // o.coeff, self.degree - o.degree)
+# Monome comparing after the O-Notation
+    def __eq__(self, o):
+        return self.degree == o.degree
+    def __lt__(self, o):
+        return self.degree < o.degree
+    def __le__(self, o):
+        return self.degree <= o.degree
+    def __gt__(self, o):
+        return self.degree > o.degree
+    def __ge__(self, o):
+        return self.degree >= o.degree
+
+class Polynome:
+    def correct(self):
+        self._m = sorted(self._m, reverse=True)
+        i, lastDeg = 0, None
+        while i < len(self._m) - 1:
+            if self._m[i] == self._m[i+1]:
+                self._m[i] += self._m.pop(i+1) # combine
+            else:
+                i += 1 # increment
+        i = 0
+        while i < len(self._m):
+            if self._m[i].coeff == 0 and self._m[i].degree != 0: self._m.pop(i)
+            else: i += 1
+        if self._m == []: self._m = [Monome(0.0, 0)]
+    def __init__(self, *m):
+        self._m = m
+        self.correct()
+    def __repr__(self):
+        return "Polynome(%s)" % ", ".join([x.__repr__() for x in reversed(self._m)])
+    def __str__(self):
+        def formatStr(x):
+          x = str(x)
+          return x if x[0] == "-" else "+" + x
+        return " ".join([formatStr(x) for x in self._m])</pre><hr/>
+<pre>WTF? I have a solution here that somethimes get accepted, somethimes rejected ...
+
+class Monome:
+    def __init__(self, coeff, deg):
+        self.coeff = coeff
+        self.degree = deg
+    def getcoeffficient(self):
+        return self.coeff
+    def getdegreere(self):
+        return self.degree
+    def __repr__(self):
+        return "Monome(%s, %s)" % (self.coeff, self.degree)
+    def __str__(self):
+        if self.degree == 0:
+            return "%s" % self.coeff
+        if self.degree == 1:
+            return "%s x" % self.coeff
+        return "%s x^ %s" % (self.coeff, self.degree)
+    def __add__(self, o):
+        if self.degree != o.degree: raise Exception("Upylab wants an Exception here!")
+        return Monome(self.coeff + o.coeff, self.degree)
+    def __sub__(self, o):
+        if self.degree != o.degree: raise Exception("Upylab wants an Exception here!")
+        return Monome(self.coeff - o.coeff, self.degree)
+    def __mul__(self, o):
+        return Monome(self.coeff * o.coeff, self.degree + o.degree)
+    def __truediv__(self, o):
+        return Monome(self.coeff / o.coeff, self.degree - o.degree)
+    def __floordiv__(self, o):
+        return Monome(self.coeff // o.coeff, self.degree - o.degree)
+# Monome comparing after the O-Notation
+    def __eq__(self, o):
+        return self.degree == o.degree
+    def __lt__(self, o):
+        return self.degree < o.degree
+    def __le__(self, o):
+        return self.degree <= o.degree
+    def __gt__(self, o):
+        return self.degree > o.degree
+    def __ge__(self, o):
+        return self.degree >= o.degree
+
+class Polynome:
+    def correct(self):
+        self._m = sorted(self._m, reverse=True)
+        i, lastDeg = 0, None
+        while i < len(self._m) - 1:
+            if self._m[i] == self._m[i+1]:
+                self._m[i] += self._m.pop(i+1) # combine
+            else:
+                i += 1 # increment
+        i = 0
+        while i < len(self._m):
+            if self._m[i].coeff == 0 and self._m[i].degree != 0: self._m.pop(i)
+            else: i += 1
+        if self._m == []: self._m = [Monome(0.0, 0)]
+    def __init__(self, *m):
+        self._m = m
+        self.correct()
+    def __repr__(self):
+        return "Polynome(%s)" % ", ".join([x.__repr__() for x in reversed(self._m)])
+    def __str__(self):
+        def formatStr(x):
+          x = str(x)
+          return x if x[0] == "-" else "+" + x
+        return " ".join([formatStr(x) for x in self._m])
+    def __add__(self, o):
+        return Polynome(*(self._m + o._m))
+    def __mul__(self, o):
+        lst = []
+        for m1 in self._m:
+            for m2 in o._m:
+                lst.append(m1 * m2)
+        return Polynome(*lst)</pre><hr/>
+<pre>from fractions import gcd
+class Rational:
+    def __init__(self, a, b):
+        if b == 0: raise Exception("WTF?")
+        self._a = a
+        self._b = b
+    def __repr__(self):
+        g = gcd(self._a, self._b)
+        return "Rational(%s, %s)" % (int(self._a / g), int(self._b / g))
+    def __str__(self):
+        g = gcd(self._a, self._b)
+        return "%s/%s" % (int(self._a / g), int(self._b / g))
+    def __add__(self, o):
+        a, b, c, d = self._a, self._b, o._a, o._b
+        a, b = a*d+c*b, b*d
+        return Rational(a, b)
+    def __sub__(self, o):
+        a, b, c, d = self._a, self._b, o._a, o._b
+        a, b = a*d-c*b, b*d
+        return Rational(a, b)
+    def __mul__(self, o):
+        a, b, c, d = self._a, self._b, o._a, o._b
+        a, b = a*c, b*d
+        return Rational(a, b)
+    def __div__(self, o):
+        a, b, c, d = self._a, self._b, o._a, o._b
+        a, b = a*d, b*c
+        return Rational(a, b)</pre><hr/>
+<h1>Chapter 14</h1>
+<pre>def upper(c):
+    if ord("A") <= ord(c) <= ord("Z"): return c
+    return chr(ord(c) - ord("a") + ord("A"))
+
+def isAlpha(c):
+    return ord("A") <= ord(c) <= ord("Z") or ord("a") <= ord(c) <= ord("z") 
+
+def correctPointer(i, str, inc):
+    while True:
+        if i >= len(str) or i < 0:
+            return None
+        if isAlpha(str[i]):
+            return i
+        if inc: i += 1
+        else: i -= 1
+
+def isPalindrome(s):
+    i, j = 0, len(s) - 1
+    while True:
+        i, j = correctPointer(i, s, True), correctPointer(j, s, False)
+        if i == None or j == None: break
+        if upper(s[i]) != upper(s[j]):
+            return False
+        i, j = i+1, j-1
+    return True
+
+def isPalindrome_py(s):
+    s = "".join(filter(lambda x: ord("A") <= ord(x) <= ord("Z"), s.upper()))
+    for i in range(len(s)):
+        if s[i] != s[len(s) - 1 - i]:
+            return False
+    return True</pre><hr/>
+<pre>def checkLst(lst):
+    return sorted(lst) == [1,2,3,4,5,6,7,8,9]
+def check_cols(grid):
+    for colNr in range(9):
+        if not checkLst([grid[x][colNr] for x in range(9)]): return False
+    return True
+def check_rows(grid):
+    for row in grid:
+        if not checkLst(row): return False
+    return True
+def check_regions(grid):
+    for rX in range(0, 7, 3):
+        for rY in range(0, 7, 3):
+            if not checkLst([grid[rX+(z%3)][rY+(z//3)] for z in range(9)]): return False
+    return True
+def parse_solution(grille):
+    return [[int(x) for x in row.strip().split()] for row in grille]
+def main(grille):
+    grid = parse_solution(grille)
+    return check_cols(grid) and check_rows(grid) and check_regions(grid)</pre><hr/>
+<pre>def power(v, c, j):
+    if v == 0 or  c == 0 or  j == 0 : return 1
+    if j == 1 : return v * c
+    if c == 1 : return 2 ** v + j
+    return power(v - 1, c, j) + power(v, c - 1, j) + power(v, c, j - 1) + power(v, c, j - 2)</pre><hr/>
+<h1>Mini tests</h1>
+<pre>EPS = 10E-5
+NMAX = 100
+def ln(x):
+    summe= 0
+    for i in range(NMAX + 1):
+        term = (1 / (2 * i + 1)) * ((x - 1) / (x + 1)) ** (2 * i + 1)
+        summe += term
+        #if 2 * term < EPS: print("IDIOTS, the test is only working without this line"); break
+        i+= 1
+    return 2 * summe</pre><hr/>
+<pre>n = int(input())
+def getLine(i):
+  s = ""
+  for x in range(i, i << 1):
+    s += str((x+1) % 10)
+  return s + str((2 * i + 1) % 10) + s[::-1]
+for i in range(n):
+    print(" " * (n - 1 - i) + getLine(i))</pre><hr/>
+<pre>NMAX = 100
+EPS = 1E-5
+
+def row():
+    i, summe = 0, 0
+    while i < NMAX << 1:
+        term = 1 / ((2 * i + 1) * (2 * (i + 1) + 1))
+        summe += term
+        if term < EPS: break
+        i += 2
+    return summe
+
+def pi():
+    return 8 * row()</pre><hr/>
+<pre>def horner(p, x):
+  pol = p[-1]
+  for i in range(len(p)-2, -1, -1):
+    pol = (pol * x) + p[i]
+  return pol</pre><hr/>
+<pre>def triangle_pascal(i, j):
+    if i < 0 or j < 0: return 0
+    try:
+        if j == 0 or i == j: return 1
+        if i == 0 and j == 0: return 1
+        return triangle_pascal(i-1, j-1) + triangle_pascal(i-1, j)
+    except:
+        pass
+def pascal(n):
+    return [triangle_pascal(n, i) for i in range(n+1)]</pre><hr/>
+  </body>
+</html>
+
