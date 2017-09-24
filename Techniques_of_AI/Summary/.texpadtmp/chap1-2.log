@@ -1,0 +1,78 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdftex 2016.4.6)  19 APR 2016 10:19
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**/Users/charleshamesse/Documents/EPB/INFO-H410/Summary/chap1-2.tex
+(/Users/charleshamesse/Documents/EPB/INFO-H410/Summary/chap1-2.tex
+/Users/charleshamesse/Documents/EPB/INFO-H410/Summary/chap1-2.tex:1: Undefined control sequence.
+l.1 \chapter
+            {Introduction}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/charleshamesse/Documents/EPB/INFO-H410/Summary/chap1-2.tex:2: Undefined control sequence.
+l.2 ...h that happened in response to some \textit
+                                                  {failures} of the first ty...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/charleshamesse/Documents/EPB/INFO-H410/Summary/chap1-2.tex:4: Undefined control sequence.
+l.4 \section
+            {Old-fashioned AI}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/charleshamesse/Documents/EPB/INFO-H410/Summary/chap1-2.tex:5: Undefined control sequence.
+l.5 \paragraph
+              {Intelligence} It is first considered as a set of mental infer...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/charleshamesse/Documents/EPB/INFO-H410/Summary/chap1-2.tex:5: Undefined control sequence.
+l.5 ...tinguish rational intelligence from \textit
+                                                  {fake} intelligences, such...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/charleshamesse/Documents/EPB/INFO-H410/Summary/chap1-2.tex:8: Undefined control sequence.
+l.8 \paragraph
+              {The inferential engine} At this time, we're able to determine...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/charleshamesse/Documents/EPB/INFO-H410/Summary/chap1-2.tex:9: Undefined control sequence.
+l.9 \begin
+          {enumerate}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[1{/Users/charleshamesse/Library/texlive/2014basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] )</usr/local/texlive/2014basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+Output written on /Users/charleshamesse/Documents/EPB/INFO-H410/Summary/.texpadtmp/chap1-2.pdf (1 page, 19406 bytes).
+PDF statistics:
+ 12 PDF objects out of 1000 (max. 8388607)
+ 7 compressed objects within 1 object stream
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

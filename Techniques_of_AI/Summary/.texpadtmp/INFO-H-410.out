@@ -1,0 +1,39 @@
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Old-fashioned AI}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Today's AI}{chapter.1}% 3
+\BOOKMARK [0][-]{chapter.2}{State space search}{}% 4
+\BOOKMARK [1][-]{section.2.1}{Exhaustive search algorithms}{chapter.2}% 5
+\BOOKMARK [1][-]{section.2.2}{Heuristic search algorithms}{chapter.2}% 6
+\BOOKMARK [0][-]{chapter.3}{Concept learning}{}% 7
+\BOOKMARK [1][-]{section.3.1}{The inductive learning hypothesis}{chapter.3}% 8
+\BOOKMARK [1][-]{section.3.2}{Version spaces}{chapter.3}% 9
+\BOOKMARK [1][-]{section.3.3}{Bias}{chapter.3}% 10
+\BOOKMARK [0][-]{chapter.4}{Decisions trees}{}% 11
+\BOOKMARK [1][-]{section.4.1}{Decision tree representation}{chapter.4}% 12
+\BOOKMARK [1][-]{section.4.2}{Entropy, information gain}{chapter.4}% 13
+\BOOKMARK [1][-]{section.4.3}{ID3 learning algorithm}{chapter.4}% 14
+\BOOKMARK [1][-]{section.4.4}{Overfitting}{chapter.4}% 15
+\BOOKMARK [0][-]{chapter.5}{Neural networks}{}% 16
+\BOOKMARK [1][-]{section.5.1}{Perceptron}{chapter.5}% 17
+\BOOKMARK [1][-]{section.5.2}{Associative memories}{chapter.5}% 18
+\BOOKMARK [1][-]{section.5.3}{Multilayer perceptron}{chapter.5}% 19
+\BOOKMARK [0][-]{chapter.6}{Clustering}{}% 20
+\BOOKMARK [1][-]{section.6.1}{K-Means clustering}{chapter.6}% 21
+\BOOKMARK [1][-]{section.6.2}{Similarity-based clustering}{chapter.6}% 22
+\BOOKMARK [1][-]{section.6.3}{Nearest neighbor clustering}{chapter.6}% 23
+\BOOKMARK [1][-]{section.6.4}{Ensemble clustering}{chapter.6}% 24
+\BOOKMARK [1][-]{section.6.5}{Subspace clustering}{chapter.6}% 25
+\BOOKMARK [0][-]{chapter.7}{Evaluation of hypothesis}{}% 26
+\BOOKMARK [1][-]{section.7.1}{Two definitions of the error}{chapter.7}% 27
+\BOOKMARK [1][-]{section.7.2}{Estimators}{chapter.7}% 28
+\BOOKMARK [1][-]{section.7.3}{Confidence intervals for observed hypothesis error}{chapter.7}% 29
+\BOOKMARK [1][-]{section.7.4}{Binomial distribution, normal distribution and central limit theorem}{chapter.7}% 30
+\BOOKMARK [1][-]{section.7.5}{Paired t tests}{chapter.7}% 31
+\BOOKMARK [1][-]{section.7.6}{Comparing learning methods}{chapter.7}% 32
+\BOOKMARK [0][-]{chapter.8}{Data, text and graph mining}{}% 33
+\BOOKMARK [1][-]{section.8.1}{Data warehouses}{chapter.8}% 34
+\BOOKMARK [1][-]{section.8.2}{Understanding and predicting data}{chapter.8}% 35
+\BOOKMARK [1][-]{section.8.3}{Data mining techniques}{chapter.8}% 36
+\BOOKMARK [0][-]{chapter.9}{Metaheuristics: genetic algorithms}{}% 37
+\BOOKMARK [0][-]{chapter.10}{Reinforcement Learning}{}% 38
+\BOOKMARK [0][-]{chapter.11}{Recommender Systems}{}% 39

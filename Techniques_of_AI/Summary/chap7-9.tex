@@ -1,0 +1,80 @@
+
+\chapter{Evaluation of hypothesis}
+\section{Two definitions of the error}
+The \textbf{true error} of hypothesis $h$ with respect to target function $f$ and distribution $\mathcal{D}$ is the probability that $h$ will misclassify an instance drawn at random according to $\mathcal{D}$.
+\begin{eqnarray}
+error_{\mathcal{D}}(h) \equiv \text{Pr}  _{x \in \mathcal{D}}  [ f(x) \neq h(x) ]	
+\end{eqnarray}
+The \textbf{sample error} of hypothesis $h$ with respect to target function $f$ and data sample $S$ is the proportion of examples $h$ misclassifies.
+\begin{eqnarray}
+error_{S}(h) \equiv \frac{1}{n} \sum_{x \in S} \delta (f(x) \neq h(x))	
+\end{eqnarray}
+
+\section{Estimators}
+\paragraph{Problems estimating error} There are two problems to keep in mind:
+\begin{enumerate}
+	\item Bias: if $S$ is a training set, $error_S(h)$ is optimistically biased:
+	\begin{eqnarray}
+		bias \equiv E [error_S(h)] - error_{\mathcal{D}}(h)
+	\end{eqnarray}
+	To get an unbiased estimate, $h$ and $S$ must be chosen independently.
+	\item Variance: even with an unbiased training set $S$, $error_S(h)$ may still vary from $error_{\mathcal{D}}(h)$.
+\end{enumerate}
+For example, if $h$ misclassifies 12 of the 40 examples in $S$, $error_S(h) = 12/40 = .3$.
+\section{Confidence intervals for observed hypothesis error}
+Let's go through all this section with a quick example. If the training set $S$ contains $n$ examples, drawn independently of $h$ and each other and $h \geq 30$, then $error_\mathcal{D}(h)$ lies with $N$\% probability in the interval:
+\begin{eqnarray}
+	error_S(h) \pm z_N \sqrt{\frac{error_S(h)(1 - error_S(h))}{n}}
+\end{eqnarray}  
+where the pairs ($N, z_N$) are the usual $(50, 0.67), (68, 1.00)$, $(80, 1.28)$, $(90, 1.64)$, (95, 1.64), $(98, 2.33)$, $(99, 2.58)$.
+\section{Binomial distribution, normal distribution and central limit theorem}
+Same old same old.. In short:
+\begin{enumerate}
+	\item Pick parameter $p$ to estimate $error_{\mathcal{D}} (h)$
+	\item Choose an estimator $error_S(h)$
+	\item Determine probability distribution that governs estimator $error_S(h)$ governed by Binomial distribution, approximated by Normal when $n \geq 30$.
+	\item Find interval $(L, U)$ such that $N$\% of probability mass falls in the interval: use table of $z_N$ values.
+
+\end{enumerate}
+
+\section{Paired $t$ tests}
+\begin{enumerate}
+	\item Partition data into $k$ disjoint test sets $T_1, T_2, ..., T_k$ of equal size, where this size is at least 30.
+	\item For $i$ from 1 to $k$, do 
+	\begin{eqnarray}
+		\delta_i \leftarrow error_{T_i} (h_A) - error_{T_i} (h_B)
+	\end{eqnarray}
+	\item Return the value $\bar{\delta}$, where
+	\begin{eqnarray}
+		\bar{\delta} \equiv \frac{1}{k} \sum^{k}_{i = 1} \delta_i 
+	\end{eqnarray}
+\end{enumerate}
+The confidence interval ($N$\%) estimate for $d$ becomes
+\begin{eqnarray}
+	\bar{\delta} &pm& t_{N, k-1} s_{\bar{\delta}} \\
+	s_{\bar{\delta}} &\equiv& \sqrt{\frac{1}{k(k-1)} \sum^{k}_{i = 1} (\delta_i - \bar{\delta})^2}
+\end{eqnarray}
+$\bar{\delta}$ is said to be approximately normally distributed.
+\section{Comparing learning methods}
+The idea is only to compute the errors of various learning algorithms and estimate their difference.
+\chapter{Data, text and graph mining}
+Data mining is an interdisciplinary subfield of computer science. It is the computational process of discovering patterns in large data sets involving methods at the intersection of artificial intelligence, machine learning, statistics, and database systems. The overall goal of the data mining process is to extract information from a data set and transform it into an understandable structure for further use.
+\section{Data warehouses}
+\paragraph{Preparing the data} It is a key step in the data mining process. Data has to be clean and homogeneous. Different variables must be expressed on the same scale, etc. You need to have regularities in the data.
+
+\paragraph{The main techniques of data mining}
+\begin{itemize}
+    \item Clustering (unsupervised, only group the data)
+    \item Outlier detection (check if some data is \textit{unusual}, e.g. detect fraud - many ways to be dishonest and few ways to be honest)
+    \item Association analysis (discovering interesting relationships hidden between various items of large data sets)
+    \item Forecasting
+    \item Classification
+\end{itemize}
+Note the difference between classification and clustering: in classification you have a set of predefined classes and want to know which class a new object belongs to. Clustering tries to group a set of objects and find whether there is some relationship between the objects.
+
+\section{Understanding and predicting data}
+Basically, we define a vector space, formatting our graph/text/image/whatever type of data it is as an $n-$dimensional, normalized (and why not some other interesting properties) vector.
+\section{Data mining techniques}
+
+\chapter{Metaheuristics: genetic algorithms}
+Genetic Algorithms and Ant Colony Optimisation
