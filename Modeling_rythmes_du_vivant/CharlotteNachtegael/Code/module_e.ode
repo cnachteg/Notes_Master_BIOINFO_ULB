@@ -1,0 +1,14 @@
+dR/dt=k0*E-k2*(S0+S)*R
+dE/dt=k3*(ET-E)/(J3+ET-E)-(K4*R*E)/(J4+E)
+
+S=heav(t-tau1)*heav(tau2-t)*Sbase
+
+
+par ET=1,k0=1,k2=1,k3=0.5,k4=1,J3=0.01,J4=0.01
+par tau1=15,tau2=40,Sbase=0.5,S0=1
+
+aux Signal=S+S0
+
+@ nplots=2,yp1=Signal,yp2=R
+
+done

@@ -1,0 +1,6 @@
+dR/dt=k0+k1*S-k2*R-k2p*E*R
+dE/dt=k3*((ET-E)/(j3+ET-E))-(k4*R*E)/(J4+E)
+
+par S=1.5,ET=1,k0=0,k1=1,k2=0.1,k2p=0.5,k3=1,k4=0.2,J3=0.05,J4=0.05
+
+done

@@ -1,0 +1,7 @@
+dX/dt=k0+K1*S-K2*X-k2p*Rp*X
+dYp/dt=K3*X*((Yt-Yp)/(Km3+(Yt-Yp)))-(k4*Yp)/(Km4+Yp)
+dRp/dt=k5*Yp*((Rt-Rp)/(Km5+(Rt-Rp)))-(k6*Rp)/(Km6+Rp)
+
+par S=1,k0=0,k1=1,k2=0.01,k2p=10,k3=0.1,k4=0.2,k5=0.1,k6=0.05,Yt=1,Rt=1,Km3=0.01,Km4=0.01,Km5=0.01,Km6=0.01
+
+done

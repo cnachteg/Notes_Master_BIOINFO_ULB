@@ -1,0 +1,15 @@
+dx/dt=a1*K1**n/(K1**n+(y/(1+S/Ks)**m)**n)-(d1+d)*x
+dy/dt=a2*K2**n/(K2**n+x**n)-d2*y
+
+S=heav(t-tau1)*heav(tau2-t)*S0
+#d=heav(t-tau3)*heav(tau4-t)*d0
+par a1=2,a2=2,K1=1,K2=1,n=4,d1=1,d2=1,Ks=5,m=2
+#par S=0.01
+par tau1=10,tau2=20,S0=1.5
+#par tau3=40,tau4=50,d0=1
+aux IPTG=S
+#aux Temp=d1+d
+
+@ nplot=4,yp1=Temp,yp2=X,yp3=Y,yp4=IPTG
+
+done

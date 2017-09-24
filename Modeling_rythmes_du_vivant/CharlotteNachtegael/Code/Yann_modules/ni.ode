@@ -1,0 +1,15 @@
+# functions
+dX/dt=k1*(O**n)/(O**n+Y**n)-X
+dY/dt=k2*(O**n)/(O**n+X**n)-Y
+
+# parameters
+par O=0.5,k1=1,k2=1,n=1
+
+# initial conditions
+init X=0,Y=0
+
+# simulation settings
+@ total=500
+
+# we are done
+done

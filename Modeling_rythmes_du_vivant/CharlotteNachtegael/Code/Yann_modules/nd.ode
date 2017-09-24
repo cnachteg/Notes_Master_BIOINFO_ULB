@@ -1,0 +1,15 @@
+# functions
+dR/dt=k0+k1*S-k2*R-k'2*E*R
+dE/dt=k3*((ET-E)/(J3+(ET-E)))-((k4*R*E)/(J4+E))
+
+# parameters
+par S=1.5,ET=1,k0=0,k1=1,k2=0.1,k'2=0.5,k3=1,k4=0.2,J3=0.05,J4=0.05
+
+# initial conditions
+init R=0,E=0
+
+# simulation settings
+@ total=500
+
+# we are done
+done

@@ -1,0 +1,18 @@
+{
+    "contents" : "represillator_IPTG<-function(omega=100){\n  \n  #parameters\n  a0=0*omega\n  a1=100*omega\n  a2=100*omega\n  a3=100*omega\n  K1=1*omega\n  K2=1*omega\n  K3=1*omega\n  n=2\n  g=1\n  b=5\n  d=5\n  Ks=5\n  m=2\n  \n  #initial conditions\n  m1=1*omega\n  m2=1*omega\n  m3=1*omega\n  p1=0*omega\n  p2=0*omega\n  p3=0*omega\n  \n  #time\n  trans=50\n  tend=100\n  tech=0.05\n  \n  tstart=20\n  tstop=60\n  \n  #initialization\n  tout=c()\n  p1out=c()\n  p2out=c()\n  p3out=c()\n  iout=c()\n  \n  t=0\n  told=0\n  \n  w=rep(0,12) #4 reactions\n  c=rep(0,12)\n  \n  #loop\n  while(t<trans+tend){\n    \n    if ((t>tstart+trans) && (t<tstop+trans)){\n      S=40\n    }\n    else{\n      S=0\n    }\n    \n    #mRNA\n    w[1]=a0+a1*K1^n/(K1^n+p3^n)\n    w[2]=g*m1\n    w[3]=a0+a2*K2^n/(K2^n+(p1/(1+S/Ks)^m)^n)\n    w[4]=g*m2\n    w[5]=a0+a3*K3^n/(K3^n+p2^n)\n    w[6]=g*m3\n    #proteins\n    w[7]=b*m1\n    w[8]=d*p1\n    w[9]=b*m2\n    w[10]=d*p2\n    w[11]=b*m3\n    w[12]=d*p3\n    \n    #calcul des prob cumul\n    c[1]=w[1]\n    for (j in 2:12)\n      c[j]=c[j-1]+w[j]\n    end\n    \n    #prob cumulée totale\n    ct=c[12]\n    \n    #deux nombres au hasard entre 0 et 1\n    z=runif(2,min=0,max=1)\n    \n    #détermination de delta t\n    tau=(-log(z[1]))/ct\n    t=t+tau\n    \n    #which reaction ?\n    uct=z[2]*ct\n    \n    if (uct < c[1]){\n      m1=m1+1\n    }\n    else if (uct <= c[2]){\n      m1=m1-1\n    }\n    else if (uct <= c[3]){\n      m2=m2+1\n    }\n    else if (uct <= c[4]){\n      m2=m2-1\n    }\n    else if (uct <= c[5]){\n      m3=m3+1\n    }\n    else if (uct <= c[6]){\n      m3=m3-1\n    }\n    else if (uct <= c[7]){\n      p1=p1+1\n    }\n    else if (uct <= c[8]){\n      p1=p1-1\n    }\n    else if (uct <= c[9]){\n      p2=p2+1\n    }\n    else if (uct <= c[10]){\n      p2=p2-1\n    }\n    else if (uct <= c[11]){\n      p3=p3+1\n    }\n    else if (uct <= c[12]){\n      p3=p3-1\n    }\n    \n    if ((t>trans) && (t>told+tech)){\n      tout=c(tout,t-trans)\n      p1out=c(p1out,p1)\n      p2out=c(p2out,p2)\n      p3out=c(p3out,p3)\n      iout=c(iout,S)\n      told=t\n    }\n  }#end loop\n  \n  write.table(array(c(tout,p1out,p2out,p3out,iout),c(length(tout),5)), col.names=F, row.names=F,\"test.txt\", sep=\"\\t\")\n  \n  \n  \n  ### Figure\n  \n  plot(tout,p1out,xlab=\"Time\",ylab=\"p1 (blue), p2 (red), p3 (green)\",xlim=c(0,tend),type=\"l\",col=\"blue\")\n  lines(tout,p2out,type=\"l\",col=\"red\")\n  lines(tout,p3out,type=\"l\",col=\"green\")\n  lines(tout,iout,type=\"l\",col=\"black\")\n  \n  #plot(xout,yout,xlab=\"x\",ylab=\"y\",type=\"l\",col=\"black\")\n}",
+    "created" : 1461935484311.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1605101372",
+    "id" : "58FE1F86",
+    "lastKnownWriteTime" : 1461937840,
+    "path" : "D:/Dropbox/Bioinfo/Modeling_rythmes_du_vivant/TP/TP_3/Code/rep_IPTG.R",
+    "project_path" : "rep_IPTG.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

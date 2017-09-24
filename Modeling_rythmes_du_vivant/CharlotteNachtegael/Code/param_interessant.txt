@@ -1,0 +1,3 @@
+
+# aux S=S
+# @ nplots=2,yp1=R,yp2=S

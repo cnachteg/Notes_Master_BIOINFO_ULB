@@ -1,0 +1,5 @@
+dR/dt=k0+k1*S-k2*R
+
+par k0=0.01,K1=1,K2=5,S=0
+
+done

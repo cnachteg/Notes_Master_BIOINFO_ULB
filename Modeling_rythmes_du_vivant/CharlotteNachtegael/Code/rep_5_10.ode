@@ -1,0 +1,12 @@
+dm1/dt=a1*K1**n/(K1**n+p3**n)+a0-gamma*m1
+dm2/dt=a2*K2**n/(K2**n+p1**n)+a0-gamma*m2
+dm3/dt=a3*K3**n/(K3**n+p2**n)+a0-gamma*m3
+dp1/dt=beta*m1-delta*p1
+dp2/dt=beta*m2-delta*p2
+dp3/dt=beta*m3-delta*p3
+
+par a1=100,a2=100,a3=100,a0=0,K1=1,K2=1,K3=1,n=2,gamma=1,beta=5,delta=5
+
+@ nplots=3,yp1=p1,yp2=p2,yp3=p3
+
+done

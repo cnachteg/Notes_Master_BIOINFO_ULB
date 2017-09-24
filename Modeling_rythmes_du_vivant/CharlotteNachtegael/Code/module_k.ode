@@ -1,0 +1,14 @@
+dX/dt=S-k*X
+dY1/dt=X/(Kx+X)+Y2**n/(K2**n+Y2**n)-Y1
+dY2/dt=X/(Kx+X)+Y1**n/(K1**n+Y1**n)-Y2
+
+S=heav(t-tau1)*heav(tau2-t)*1
+
+par k=1,Kx=2,K1=0.5,K2=0.5,n=4
+par tau1=2,tau2=5
+
+aux Signal=S
+
+#@ nplots=4,yp1=Signal,yp2=X,yp3=Y1,yp4=Y2
+
+done

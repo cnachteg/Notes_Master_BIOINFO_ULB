@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "tog_IPTG<-function(omega=100){\n  \n  #parameters\n  a1=2*omega\n  a2=2*omega\n  K1=1*omega\n  K2=1*omega\n  n=4\n  d1=1\n  d2=1\n  Ks=5\n  m=2\n  S=0\n  \n  #initial conditions\n  x0=1*omega\n  y0=1*omega\n  \n  #time\n  trans=50\n  tend=100\n  tech=0.05\n  \n  tstart=20\n  tstop=60\n  \n  #initialization\n  tout=c()\n  xout=c()\n  yout=c()\n  iout=c()\n  \n  x=x0\n  y=y0\n  \n  t=0\n  told=0\n  \n  w=rep(0,4) #4 reactions\n  c=rep(0,4)\n  \n  #loop\n  while(t<trans+tend){\n    \n    if ((t>tstart+trans) && (t<tstop+trans)){\n      S=2\n    }\n    else{\n      S=0\n    }\n    \n    w[1]=a1*K1^n/(K1^n+(y/(1+S/Ks)^m)^n)\n    w[2]=d1*x\n    w[3]=a2*K2^n/(K2^n+x^n)\n    w[4]=d2*y\n    \n    #calcul des prob cumul\n    c[1]=w[1]\n    for (j in 2:4)\n      c[j]=c[j-1]+w[j]\n    end\n    \n    #prob cumulée totale\n    ct=c[4]\n    \n    #deux nombres au hasard entre 0 et 1\n    z=runif(2,min=0,max=1)\n    \n    #détermination de delta t\n    tau=(-log(z[1]))/ct\n    t=t+tau\n    \n    #which reaction ?\n    uct=z[2]*ct\n    \n    if (uct < c[1]){\n      x=x+1\n    }\n    else if (uct <= c[2]){\n      x=x-1\n    }\n    else if (uct <= c[3]){\n      y=y+1\n    }\n    else if (uct <= c[4]){\n      y=y-1\n    }\n    \n    if ((t>trans) && (t>told+tech)){\n      tout=c(tout,t-trans)\n      xout=c(xout,x)\n      yout=c(yout,y)\n      iout=c(iout,S)\n      told=t\n    }\n  }#end loop\n  \n  write.table(array(c(tout,xout,yout,iout),c(length(tout),4)), col.names=F, row.names=F,\"test.txt\", sep=\"\\t\")\n  \n  \n  \n  ### Figure\n  \n  plot(tout,xout,xlab=\"Time\",ylab=\"x (blue), y (red), IPTG (black)\",xlim=c(0,tend),type=\"l\",col=\"blue\")\n  lines(tout,yout,type=\"l\",col=\"red\")\n  lines(tout,iout,type=\"l\",col=\"black\")\n  \n  #plot(xout,yout,xlab=\"x\",ylab=\"y\",type=\"l\",col=\"black\")\n}\n",
+    "created" : 1463040807549.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "731253089",
+    "id" : "B5F0B326",
+    "lastKnownWriteTime" : 1461931156,
+    "last_content_update" : 0,
+    "path" : "C:/Users/Charlotte/Dropbox/Bioinfo/Modeling_rythmes_du_vivant/TP/TP_3/Code/tog_IPTG.R",
+    "project_path" : "tog_IPTG.R",
+    "properties" : {
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,17 @@
+# functions
+dX/dt=S-k*X
+dY1/dt=X/(KX+X)+(Y2**n)/(K2**n+Y2**n)-Y1
+dY2/dt=X/(KX+X)+(Y1**n)/(K1**n+Y1**n)-Y2
+
+# parameters
+par S=1
+par k=1,KX=2,K1=0.5,K2=0.5,n=4
+
+# initial conditions
+init X=0,Y1=0,Y2=0
+
+# simulation settings
+@ total=500
+
+# we are done
+done

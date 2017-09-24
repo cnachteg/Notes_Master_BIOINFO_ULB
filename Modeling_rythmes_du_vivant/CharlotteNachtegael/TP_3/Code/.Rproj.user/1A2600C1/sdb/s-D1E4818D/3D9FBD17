@@ -1,0 +1,18 @@
+{
+    "contents" : "repeat_toggle<-function(run=50){\n  distrib_X=c()\n  sd_X_mean=c()\n  for (omega in 1:50){\n    for (i in 1:run){\n        #parameters\n        a1=2*omega\n        a2=2*omega\n        K1=1*omega\n        K2=1*omega\n        n=4\n        d1=1\n        d2=1\n        \n        #initial conditions\n        x0=1*omega\n        y0=1*omega\n        \n        #time\n        trans=50\n        tend=100\n        tech=0.05\n        \n        #initialization\n        tout=c()\n        xout=c()\n        yout=c()\n        \n        x=x0\n        y=y0\n        \n        t=0\n        told=0\n        \n        w=rep(0,4) #4 reactions\n        c=rep(0,4)\n        \n        #loop\n        while(t<trans+tend){\n          \n          w[1]=a1*K1^n/(K1^n+y^n)\n          w[2]=d1*x\n          w[3]=a2*K2^n/(K2^n+x^n)\n          w[4]=d2*y\n          \n          #calcul des prob cumul\n          c[1]=w[1]\n          for (j in 2:4)\n            c[j]=c[j-1]+w[j]\n          end\n          \n          #prob cumulée totale\n          ct=c[4]\n          \n          #deux nombres au hasard entre 0 et 1\n          z=runif(2,min=0,max=1)\n          \n          #détermination de delta t\n          tau=(-log(z[1]))/ct\n          t=t+tau\n          \n          #which reaction ?\n          uct=z[2]*ct\n          \n          if (uct < c[1]){\n            x=x+1\n          }\n          else if (uct <= c[2]){\n            x=x-1\n          }\n          else if (uct <= c[3]){\n            y=y+1\n          }\n          else if (uct <= c[4]){\n            y=y-1\n          }\n          \n          if ((t>trans) && (t>told+tech)){\n            tout=c(tout,t-trans)\n            xout=c(xout,x)\n            yout=c(yout,y)\n            told=t\n          }\n        }\n    distrib_X=c(distrib_X,sd(xout)/mean(xout))\n    }\n  sd_X_mean=c(sd_X_mean,mean(distrib_X))\n  distrib_X=c()\n  print(omega)\n  }\n  plot(1:50,sd_X_mean,main=\"Quantification of noise in function of the system size\",xlab=\"Omega\",ylab=\"Noise\")\n}",
+    "created" : 1463033767053.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4174471867",
+    "id" : "3D9FBD17",
+    "lastKnownWriteTime" : 1463047491,
+    "path" : "D:/Dropbox/Bioinfo/Modeling_rythmes_du_vivant/TP/TP_3/Code/bruit_tog.R",
+    "project_path" : "bruit_tog.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

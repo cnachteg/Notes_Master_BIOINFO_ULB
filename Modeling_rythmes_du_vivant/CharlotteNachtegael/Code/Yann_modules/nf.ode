@@ -1,0 +1,17 @@
+# functions
+dX/dt=k0+k1*S-k2*X-k'2*RP*X
+dYP/dt=k3*X*(YT-YP)/(Km3+YT-YP)-(k4*YP)/(Km4+Yp)
+dRP/dt=k3*YP*(RT-RP)/(Km5+RT-RP)-(k6*RP)/(Km6+RP)
+
+# parameters
+par S=1
+par k0=0,k1=1,k2=0.01,k'2=10,k3=0.1,k4=0.2,k5=0.1,k6=0.05,YT=1,RT=1,Km3=0.01,Km4=0.01,Km5=0.01,Km6=0.01
+
+# initial conditions
+init X=0,YP=0,RP=0
+
+# simulation settings
+@ total=500
+
+# we are done
+done

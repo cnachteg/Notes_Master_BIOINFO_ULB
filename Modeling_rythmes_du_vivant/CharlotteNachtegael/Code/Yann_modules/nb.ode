@@ -1,0 +1,15 @@
+# functions
+dRp/dt=((k1*S*(RT-RP))/(Km1+(RT-RP)))-((k2*RP)/(Km2+RP))
+
+# parameters
+par k1=1,k2=1,RT=1,Km1=0.05,Km2=0.05,S=1
+
+# initial conditions
+init Rp=0
+
+# simulation settings
+@ total=500
+
+# we are done
+done
+

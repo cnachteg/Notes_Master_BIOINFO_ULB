@@ -1,0 +1,5 @@
+dRp/dt=k1*S*(RT-RP)/(KM1+(RT-RP))-(k2*RP)/(KM2+RP)
+
+par S=0,k1=1,k2=1,RT=1,KM1=0.05,KM2=0.05
+
+done

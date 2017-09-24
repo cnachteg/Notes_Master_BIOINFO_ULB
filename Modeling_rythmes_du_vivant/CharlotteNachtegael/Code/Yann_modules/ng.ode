@@ -1,0 +1,17 @@
+# functions
+dR/dt=k0*EP+k1*S-k2*R-k2p*X*R
+dEP/dt=k3*R*(ET-EP)/(J3+ET-EP)-(k4*EP)/(J4+EP)
+dX/dt=k5*R-k6*X
+
+# parameters
+par S=0.2
+par ET=1,k0=4,k1=1,k2=1,k2p=1,k3=1,k4=1,k5=0.1,k6=0.075,J3=0.3,J4=0.3
+
+# initial conditions
+init R=0,EP=0,X=0
+
+# simulation settings
+@ total=500
+
+# we are done
+done

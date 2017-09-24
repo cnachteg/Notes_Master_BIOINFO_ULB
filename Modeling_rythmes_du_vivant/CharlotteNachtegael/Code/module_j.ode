@@ -1,0 +1,4 @@
+dX/dt=k1*(Y**n)/(Th**n+Y**n)-X
+dY/dt=k2*(Th**n)/(Th**n+X**n)-Y
+
+par Th=0.5,k1=1,k2=1,n=1
